@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "CustomFont";
+}
+
+@font-face {
+    font-family: "CustomFont";
+    src: url(https://fonts.google.com/specimen/Inter);
+}
+.App {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cover {
+    background-color: #ECECEC;
+    border-radius: 20px;
+    border: 1px solid;
+    border-color: #808080;
+    width: 450px;
+    height: 250px;
+    flex-direction: column;
+    justify-content: space-around;
+    display: flex;
+    padding: 20px;
+}
+.user-input {
+    margin-top: -8px;
+    border-width: 0px;
+    outline-style: none;
+    border-radius: 7px;
+    font-size: 17px;
+    width: 400px;
+    height: 35px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.login-button {
+    background-color: yellow;
+    width: 150px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 120px;
+}
