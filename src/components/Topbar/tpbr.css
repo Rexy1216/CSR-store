@@ -1,0 +1,17 @@
+div.topbar{
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #D9D9D9;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: flex;
+    height: 100vh;
+    height: 40px;
+}
+div.ad {
+    border-radius: 5px;
+    height: 25px;
+    width: 80px;
+    background-color: #3F3F3F;
+}

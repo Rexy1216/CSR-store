@@ -1,14 +1,13 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
-import "./loginform.css"
+import "./cahier.css"
 
-const Loginform = () => {
+const Cashier = () => {
     const navigate = useNavigate();
     return (
-        
         <div className="container">
             <div className="cover">
-                <text style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }}>ADMIN LOGIN</text>
+                <text style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }}>CASHIER LOGIN</text>
                 <div style={{ textAlign: "left" }}>
                     <label style={{ fontSize: 18 }}>Email:</label>
                 </div>
@@ -24,6 +23,7 @@ const Loginform = () => {
                 </div>
             </div>
         </div>
+
     )
 }
-export default Loginform;
+export default Cashier;
