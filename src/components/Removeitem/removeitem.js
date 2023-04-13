@@ -12,7 +12,7 @@ const Removeitem = () => {
         <div className='addbg' style={{ animationName: isVisible ? 'modal-active' : 'modal-inactive' }}>
             <div className='additemcontainer'>
                 <div className='top-bars'>
-                    <h1 style={{ fontSize: 20, fontWeight: 'bold', marginLeft: 160, paddingTop: 5, paddingBottom: 5 }}>Add item</h1>
+                    <h1 style={{ fontSize: 20, fontWeight: 'bold', marginLeft: 160, paddingTop: 5, paddingBottom: 5 }}>Remove item</h1>
                     <button style={{ border: 0, backgroundColor: '#E7E7E7' }}>X</button>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', marginTop: 20 }}>

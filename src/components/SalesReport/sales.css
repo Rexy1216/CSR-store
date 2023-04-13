@@ -27,7 +27,9 @@ div.ad {
     align-items: center;
     background-color: #3F3F3F;
 }
-
+.topsales svg:hover {
+    cursor: pointer;
+}
 .record-container {
     /* display: flex; */
     list-style-type: none;
