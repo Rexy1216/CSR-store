@@ -7,38 +7,6 @@ import { MdAddBox } from "react-icons/md";
 import "./dashboard.css";
 
 const Dashboard = () => {
-  const [i, setI] = useState([
-    {
-      itemName: "Kaldereta",
-    },
-    {
-      itemName: "Kaldereta",
-    },
-    {
-      itemName: "Kaldereta",
-    },
-    {
-      itemName: "Kaldereta",
-    },
-    {
-      itemName: "Kaldereta",
-    },
-    {
-      itemName: "Kaldereta",
-    },
-    {
-      itemName: "Kaldereta",
-    },
-    {
-      itemName: "Kaldereta",
-    },
-    {
-      itemName: "Kaldereta",
-    },
-    {
-      itemName: "Kaldereta",
-    },
-  ]);
 
   const [itemss, setItemss] = useState([
     {
@@ -71,6 +39,36 @@ const Dashboard = () => {
       qty: 20,
       id: 7,
     },
+    {
+      price: 40,
+      itemName: "Pants",
+      qty: 20,
+      id: 7,
+    },
+    {
+      price: 40,
+      itemName: "Sweetshirt",
+      qty: 20,
+      id: 7,
+    },
+    {
+      price: 40,
+      itemName: "Snickers",
+      qty: 20,
+      id: 7,
+    },
+    {
+      price: 40,
+      itemName: "Shorts",
+      qty: 20,
+      id: 7,
+    },
+    {
+      price: 40,
+      itemName: "CargoPants",
+      qty: 20,
+      id: 7,
+    },
   ]);
 
   const [itemsSelected, setItemSelected] = useState([]);
@@ -96,6 +94,7 @@ const Dashboard = () => {
   };
 
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isRemoveVisible, setIsRemoveVisible] = useState(false);
   const [contextMenuPos, setContextMenuPos] = useState({ x: 0, y: 0 });
   const [isContextMenu, setIsContextMenu] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
@@ -108,13 +107,20 @@ const Dashboard = () => {
     setSearchTerm(e.target.value);
   };
   const handleRemoveModal = () => {
-    setIsModalVisible(true);
+    setIsRemoveVisible(true);
   };
-
+  const calculateTotal = () => {
+    let total = 0;
+    itemsSelected.forEach((item) => {
+      total += item.price * item.qty;
+    });
+    return total;
+  };
+  
   return (
     <>
       {isModalVisible && <Additem setAddItem={setIsModalVisible} />}
-      {isModalVisible && <Removeitem setRemoveItem={setIsModalVisible} />}
+      {isRemoveVisible && <Removeitem setRemoveItem={setIsRemoveVisible} />}
       <div style={{ display: "flex", justifyContent: "center" }}>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <div className="items-container">
@@ -244,6 +250,7 @@ const Dashboard = () => {
             </div>
             <div className="table-container">
               {itemsSelected.map((item, index) => {
+                const total = item.price * item.qty;
                 return (
                   <div
                     key={index}
@@ -277,7 +284,7 @@ const Dashboard = () => {
                       <p
                         style={{ fontSize: 18, color: "black", marginTop: 20 }}
                       >
-                        ₱15
+                        ₱{total}
                       </p>
                     </div>
                     <div
@@ -309,7 +316,7 @@ const Dashboard = () => {
                     Total:
                   </p>
                   <p className="paytext" style={{ fontSize: 25 }}>
-                    ₱365
+                    ₱{calculateTotal()}
                   </p>
                 </div>
                 <div className="cash-container" style={{ marginBottom: 30 }}>
