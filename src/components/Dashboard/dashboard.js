@@ -97,8 +97,10 @@ const Dashboard = () => {
   const [isRemoveVisible, setIsRemoveVisible] = useState(false);
   const [contextMenuPos, setContextMenuPos] = useState({ x: 0, y: 0 });
   const [isContextMenu, setIsContextMenu] = useState(false);
+  const [change, setChange] = useState(0)
+  const [cash, setCash] = useState(0)
   const [searchTerm, setSearchTerm] = useState("");
-
+ 
   const handleOpenModal = () => {
     setIsModalVisible(true);
   };
@@ -116,7 +118,7 @@ const Dashboard = () => {
     });
     return total;
   };
-  
+
   return (
     <>
       {isModalVisible && <Additem setAddItem={setIsModalVisible} />}
@@ -268,7 +270,7 @@ const Dashboard = () => {
                         {item.itemName}
                       </p>
                     </div>
-                    <div className="price-container" style={{ marginLeft: 30 }}>
+                    <div className="priceright-container" style={{ marginLeft: 30 }}>
                       <p style={{ fontSize: 18, color: "black" }}>
                         ₱{item.price}
                       </p>
@@ -311,11 +313,11 @@ const Dashboard = () => {
                 <div className="total">
                   <p
                     className="paytext"
-                    style={{ marginRight: 100, marginLeft: -150, fontSize: 25 }}
+                    style={{ marginRight: 100, marginLeft: -200, fontSize: 25 }}
                   >
                     Total:
                   </p>
-                  <p className="paytext" style={{ fontSize: 25 }}>
+                  <p className="paytext" style={{ fontSize: 25, position: 'absolute', left: 363 }}>
                     ₱{calculateTotal()}
                   </p>
                 </div>
@@ -329,7 +331,24 @@ const Dashboard = () => {
                   >
                     ₱
                   </p>
-                  <input className="cash" type="number" />
+                  <input className="cash" type="number" value={cash} onChange={(e) => {
+                    const total = calculateTotal()
+                    const change = parseInt(e.target.value) - total
+
+                    setCash(e.target.value)
+
+                    if (isNaN(change)) {
+                      setChange(0)
+                      return
+                    }
+                    if (change < 0) {
+                      setChange('Insufficient Cash!')
+                      return
+                    }
+                    setChange(change)
+                    
+                    
+                  }}/>
                 </div>
                 <div className="total">
                   <p
@@ -339,15 +358,17 @@ const Dashboard = () => {
                       marginLeft: -180,
                       fontSize: 25,
                       marginTop: -45,
+                      position: 'absolute',
+                      left: 353
                     }}
                   >
                     Change:
                   </p>
                   <p
                     className="paytext"
-                    style={{ fontSize: 25, marginTop: -45 }}
+                    style={{ fontSize: 25, marginTop: -45, marginLeft: -13, position: 'absolute', left: 375 }}
                   >
-                    ₱245
+                    {change !== 'Insufficient Cash!' ? ('₱' + change) : change}
                   </p>
                 </div>
                 <div
