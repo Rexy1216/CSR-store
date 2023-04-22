@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    box-sizing: border-box; 
+    font-family: "CustomFont";
+}
+
+@font-face {
+    font-family: "CustomFont";
+    src: url(https://fonts.google.com/specimen/Inter);
+}
+
+.cover {
+    background-color: #D9D9D9;
+    border-radius: 20px;
+    border: 1px solid;
+    border-color: #808080;
+    width: 450px;
+    height: 250px;
+    flex-direction: column;
+    justify-content: space-around;
+    display: flex;
+    padding: 20px;
+}
+.user-input {
+    margin-top: -8px;
+    border-width: 0px;
+    box-shadow: inset 0px 1px 3px 1px rgba(0, 0, 0, 0.5);
+    outline-style: none;
+    border-radius: 7px;
+    font-size: 17px;
+    width: 400px;
+    height: 35px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.login-button {
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.5);
+    background-color: white;
+    width: 150px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 120px;
+}
