@@ -2,11 +2,9 @@ import React from "react";
 import { useState } from "react";
 import Additem from "../Additem/additem";
 import Removeitem from "../Removeitem/removeitem";
+import "./cashierdashboard.css";
 
-import { MdAddBox } from "react-icons/md";
-import "./dashboard.css";
-
-const Dashboard = () => {
+const CashierDashboard = () => {
 
   const [itemss, setItemss] = useState([
     {
@@ -92,25 +90,17 @@ const Dashboard = () => {
       return prevItems.filter((item, i) => i !== index);
     });
   };
-
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const [isRemoveVisible, setIsRemoveVisible] = useState(false);
+  
   const [contextMenuPos, setContextMenuPos] = useState({ x: 0, y: 0 });
   const [isContextMenu, setIsContextMenu] = useState(false);
   const [change, setChange] = useState(0)
   const [cash, setCash] = useState(0)
   const [searchTerm, setSearchTerm] = useState("");
  
-  const handleOpenModal = () => {
-    setIsModalVisible(true);
-  };
-
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
   };
-  const handleRemoveModal = () => {
-    setIsRemoveVisible(true);
-  };
+
   const calculateTotal = () => {
     let total = 0;
     itemsSelected.forEach((item) => {
@@ -121,8 +111,6 @@ const Dashboard = () => {
 
   return (
     <>
-      {isModalVisible && <Additem setAddItem={setIsModalVisible} />}
-      {isRemoveVisible && <Removeitem setRemoveItem={setIsRemoveVisible} />}
       <div style={{ display: "flex", justifyContent: "center" }}>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <div className="items-container">
@@ -145,38 +133,6 @@ const Dashboard = () => {
               <p className="text-detail">Product name</p>
               <p className="text-detail" style={{ marginLeft: 140 }}>
                 Price
-              </p>
-              <p
-                className="text-detail"
-                style={{
-                  marginLeft: 160,
-                  backgroundColor: "white",
-                  height: 30,
-                  width: 120,
-                  textAlign: "center",
-                  paddingTop: 6,
-                  borderRadius: 8,
-                  cursor: "pointer",
-                }}
-                onClick={handleOpenModal}
-              >
-                Add item
-              </p>
-              <p
-                className="text-detail"
-                style={{
-                  marginLeft: 15,
-                  backgroundColor: "white",
-                  height: 30,
-                  width: 120,
-                  textAlign: "center",
-                  paddingTop: 6,
-                  borderRadius: 8,
-                  cursor: "pointer",
-                }}
-                onClick={handleRemoveModal}
-              >
-                Remove item
               </p>
             </div>
             <div className="left-container">
@@ -392,4 +348,4 @@ const Dashboard = () => {
     </>
   );
 };
-export default Dashboard;
+export default CashierDashboard;

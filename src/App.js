@@ -6,6 +6,8 @@ import Cashier from './components/CashierLogin/cashier';
 import Topbar from './components/Topbar/topbar';
 import Dashboard from './components/Dashboard/dashboard';
 import SalesReport from './components/SalesReport/sales';
+import CashierDashboard from './components/CashierDashboard/cashierdashboard';
+import CashierTopbar from './components/cashiertopbar/ctopbar';
 
 const NotPage = () => {
   return (
@@ -25,6 +27,15 @@ function App() {
         <Route path="/" element={<Poslogin />} />
         <Route path="/admin" element={<Loginform />} />
         <Route path="/cashier" element={<Cashier />} />
+        <Route
+          path="/cashierdashboard/*"
+          element={
+            <>
+              <CashierTopbar />
+              <CashierDashboard />
+            </>
+          }
+        />
         <Route path="/sales" element={<SalesReport />} />
         <Route
           path="/dashboard/*"

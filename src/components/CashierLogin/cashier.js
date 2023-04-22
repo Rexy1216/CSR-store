@@ -19,7 +19,7 @@ const Cashier = () => {
                 </div>
                 <input className='user-input' type='text' placeholder='Enter your password' />
                 <div className='login-button'>
-                    <p style={{ fontSize: 18, fontWeight: "bold" }} onClick={() => navigate('/dashboard')}>LOGIN</p>
+                    <p style={{ fontSize: 18, fontWeight: "bold" }} onClick={() => navigate('/cashierdashboard')}>LOGIN</p>
                 </div>
             </div>
         </div>
