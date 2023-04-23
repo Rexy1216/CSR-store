@@ -5,6 +5,7 @@ import Removeitem from "../Removeitem/removeitem";
 
 import { MdAddBox } from "react-icons/md";
 import "./dashboard.css";
+import Pay from "./pay";
 
 const Dashboard = () => {
 
@@ -95,6 +96,7 @@ const Dashboard = () => {
 
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isRemoveVisible, setIsRemoveVisible] = useState(false);
+  const [isPayVisible, setIsPayVisible] = useState(false);
   const [contextMenuPos, setContextMenuPos] = useState({ x: 0, y: 0 });
   const [isContextMenu, setIsContextMenu] = useState(false);
   const [change, setChange] = useState(0)
@@ -111,6 +113,9 @@ const Dashboard = () => {
   const handleRemoveModal = () => {
     setIsRemoveVisible(true);
   };
+  const handlePayModal = () => {
+    setIsPayVisible(true);
+  };
   const calculateTotal = () => {
     let total = 0;
     itemsSelected.forEach((item) => {
@@ -123,6 +128,7 @@ const Dashboard = () => {
     <>
       {isModalVisible && <Additem setAddItem={setIsModalVisible} />}
       {isRemoveVisible && <Removeitem setRemoveItem={setIsRemoveVisible} />}
+      {isPayVisible && <Pay setPayItem={setIsPayVisible} />}
       <div style={{ display: "flex", justifyContent: "center" }}>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <div className="items-container">
@@ -379,7 +385,7 @@ const Dashboard = () => {
                 >
                   <div
                     className="btns"
-                    style={{ backgroundColor: "#73D4B1", cursor: "pointer" }}
+                    style={{ backgroundColor: "#73D4B1", cursor: "pointer" }} onClick={handlePayModal}
                   >
                     <p className="btns-txt">PAY</p>
                   </div>

@@ -3,6 +3,7 @@ import { useState } from "react";
 import Additem from "../Additem/additem";
 import Removeitem from "../Removeitem/removeitem";
 import "./cashierdashboard.css";
+import Payc from "./payc";
 
 const CashierDashboard = () => {
 
@@ -90,15 +91,19 @@ const CashierDashboard = () => {
       return prevItems.filter((item, i) => i !== index);
     });
   };
-  
+
   const [contextMenuPos, setContextMenuPos] = useState({ x: 0, y: 0 });
   const [isContextMenu, setIsContextMenu] = useState(false);
+  const [isPayVisible, setIsPayVisible] = useState(false);
   const [change, setChange] = useState(0)
   const [cash, setCash] = useState(0)
   const [searchTerm, setSearchTerm] = useState("");
- 
+
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
+  };
+  const handlePayModal = () => {
+    setIsPayVisible(true);
   };
 
   const calculateTotal = () => {
@@ -111,6 +116,7 @@ const CashierDashboard = () => {
 
   return (
     <>
+      {isPayVisible && <Payc setPayItem={setIsPayVisible} />}
       <div style={{ display: "flex", justifyContent: "center" }}>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <div className="items-container">
@@ -160,11 +166,11 @@ const CashierDashboard = () => {
                       </p>
                     </div>
                     <div className="additem-container" onClick={() =>
-                          addItemAtIndex(item.id, {
-                            price: item.price,
-                            itemName: item.itemName,
-                          })
-                        }>
+                      addItemAtIndex(item.id, {
+                        price: item.price,
+                        itemName: item.itemName,
+                      })
+                    }>
                       <p
                         style={{ fontSize: 18, color: "black", marginLeft: 20 }}
                       >
@@ -254,7 +260,7 @@ const CashierDashboard = () => {
                           color: "black",
                           paddingLeft: 15,
                         }}
-                        
+
                       >
                         Remove
                       </p>
@@ -301,9 +307,9 @@ const CashierDashboard = () => {
                       return
                     }
                     setChange(change)
-                    
-                    
-                  }}/>
+
+
+                  }} />
                 </div>
                 <div className="total">
                   <p
@@ -335,7 +341,7 @@ const CashierDashboard = () => {
                 >
                   <div
                     className="btns"
-                    style={{ backgroundColor: "#73D4B1", cursor: "pointer" }}
+                    style={{ backgroundColor: "#73D4B1", cursor: "pointer" }} onClick={handlePayModal}
                   >
                     <p className="btns-txt">PAY</p>
                   </div>

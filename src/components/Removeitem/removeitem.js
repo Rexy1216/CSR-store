@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import { AiOutlineCloseCircle } from 'react-icons/ai';
 import "./removeitem.css"
 
 const Removeitem = () => {
@@ -13,7 +14,9 @@ const Removeitem = () => {
             <div className='additemcontainer'>
                 <div className='top-bars'>
                     <h1 style={{ fontSize: 20, fontWeight: 'bold', marginLeft: 160, paddingTop: 5, paddingBottom: 5 }}>Remove item</h1>
-                    <button style={{ border: 0, backgroundColor: '#E7E7E7' }}>X</button>
+                    <div style={{ paddingRight: 7, paddingTop: 3, cursor: 'pointer' }} onClick={handleCancel}>
+                            <AiOutlineCloseCircle size={20} />
+                        </div>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', marginTop: 20 }}>
                     <p style={{ marginLeft: 60, marginTop: 25, fontSize: 18 }}>Product Name:</p>
